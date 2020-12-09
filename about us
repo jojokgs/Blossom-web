@@ -1,0 +1,181 @@
+package blossomproject;
+import java.awt.*;
+import java.awt.geom.*;
+public class aboutus extends javax.swing.JFrame {
+
+    public aboutus() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jButton1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("About Us");
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setBackground(new java.awt.Color(255, 153, 153));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(153, 0, 51));
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel9.setText("About us");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("MV Boli", 1, 18)); // NOI18N
+        jLabel8.setText(" feel free to call and we will help you");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("MV Boli", 1, 18)); // NOI18N
+        jLabel7.setText("If you need more information, please");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("MV Boli", 1, 18)); // NOI18N
+        jLabel6.setText("emerged as a preferred florist.");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("MV Boli", 1, 18)); // NOI18N
+        jLabel5.setText("flowers and simple Balloons, we have");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("MV Boli", 1, 18)); // NOI18N
+        jLabel4.setText("Begun as a small retailer of fresh-cut");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("MV Boli", 1, 18)); // NOI18N
+        jLabel3.setText("you a variety of Flowers and Balloons.");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("MV Boli", 1, 18)); // NOI18N
+        jLabel2.setText("Established in 2020, Blossom brings");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blossomproject/flower.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        setSize(new java.awt.Dimension(642, 453));
+        setLocationRelativeTo(null);
+    }// </editor-fold>                        
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {                                    
+        
+        Graphics g = getGraphics();
+        Graphics2D g2 = (Graphics2D)g;
+        
+        
+        g2.setPaint(new GradientPaint(140, 20, Color.RED, 100,200,Color.BLUE , true));
+        
+        g2.fillOval(550, 70, 60, 80);
+        
+        int[] x1 = {570, 580, 590};
+        int[] y1 = {155, 145, 155};
+        g2.fillPolygon(x1, y1, 3);
+        
+        g2.setPaint(new GradientPaint(0, 0, Color.RED, 20,200,Color.BLUE , true));
+        
+        float[] dashes = {3,0,2,5};
+        g2.setStroke(new BasicStroke(2, BasicStroke.CAP_BUTT, BasicStroke.JOIN_ROUND, 10.0f, dashes, 7f));
+        g2.draw(new Line2D.Double(580, 150, 580, 240));
+        
+        g2.setPaint(new GradientPaint(0, 20, Color.RED, 420,0,Color.BLUE , true));
+        
+        int[] x2 = {585, 570, 570};
+        int[] y2 = {180, 170, 190};
+        g2.fillPolygon(x2, y2, 3);
+        
+        int[] x3 = {575, 590, 590};
+        int[] y3 = {180, 170, 190};
+        g2.fillPolygon(x3, y3, 3);
+             
+        g2.setPaint(Color.WHITE);
+        
+        g2.fillOval(565, 85, 5, 10);
+        
+        g2.setPaint(Color.PINK);
+        int[] x4 = {580, 575, 575};
+        int[] y4 = {180, 177, 183};
+        
+        g2.fillPolygon(x4, y4, 3);
+        int[] x5 = {580, 586, 586};
+        int[] y5 = {180, 177, 183};
+        g2.fillPolygon(x5, y5, 3);
+        
+    }                                   
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+
+        new welcom().setVisible(true);
+        this.setVisible(false);
+
+    }                                        
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(aboutus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(aboutus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(aboutus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(aboutus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new aboutus().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    // End of variables declaration                   
+}
