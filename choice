@@ -1,0 +1,230 @@
+package blossomproject;
+import javax.swing.*;
+import java.sql.*;
+
+public class choice extends javax.swing.JFrame {
+    Connection connection = null;
+    Statement statement = null;
+    ResultSet resultSet = null;
+    String query;
+    static PreparedStatement preparedstatementt;
+    
+    public choice(){
+        
+        initComponents();
+        doConnect();
+    }
+    
+    public void doConnect(){
+       
+        try{
+            
+            String URL = "jdbc:mysql://localhost/store";
+            String username = "root";
+            String password = "1234";
+            query = "select * from menu_items_category where id_c=1 ";
+            connection = DriverManager.getConnection(URL, username, password);
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+                                                            ResultSet.CONCUR_UPDATABLE);
+            resultSet = statement.executeQuery(query);
+                     
+            resultSet.next();
+	  
+            RFlower.setText(resultSet.getString(3));
+            
+            query = "select * from menu_items_category where id_c=2 ";
+	    resultSet = statement.executeQuery(query);
+                     
+            resultSet.next();
+	  
+            RBalloon.setText(resultSet.getString(3));
+        } 
+        
+        catch (SQLException ex){
+            
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    } 
+    
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
+        jLabel2 = new javax.swing.JLabel();
+        RFlower = new javax.swing.JRadioButton();
+        RBalloon = new javax.swing.JRadioButton();
+        Next = new javax.swing.JButton();
+        Back = new javax.swing.JButton();
+        Modify = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        jInternalFrame1.setVisible(true);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Choice");
+        setAlwaysOnTop(true);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Modern No. 20", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel2.setText("Choose What you are want to buy");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
+
+        RFlower.setBackground(new java.awt.Color(255, 153, 153));
+        buttonGroup1.add(RFlower);
+        RFlower.setFont(new java.awt.Font("Modern No. 20", 1, 18)); // NOI18N
+        RFlower.setForeground(new java.awt.Color(153, 0, 51));
+        RFlower.setText("Flowers");
+        RFlower.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RFlowerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(RFlower, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, -1, -1));
+
+        RBalloon.setBackground(new java.awt.Color(255, 153, 153));
+        buttonGroup1.add(RBalloon);
+        RBalloon.setFont(new java.awt.Font("Modern No. 20", 1, 18)); // NOI18N
+        RBalloon.setForeground(new java.awt.Color(153, 0, 51));
+        RBalloon.setText("Balloones");
+        getContentPane().add(RBalloon, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, -1, -1));
+
+        Next.setBackground(new java.awt.Color(255, 153, 153));
+        Next.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Next.setForeground(new java.awt.Color(153, 0, 51));
+        Next.setText("Next");
+        Next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NextActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Next, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, -1, -1));
+
+        Back.setBackground(new java.awt.Color(255, 153, 153));
+        Back.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Back.setForeground(new java.awt.Color(153, 0, 51));
+        Back.setText("Back");
+        Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, -1, -1));
+
+        Modify.setBackground(new java.awt.Color(255, 153, 153));
+        Modify.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Modify.setForeground(new java.awt.Color(153, 0, 51));
+        Modify.setText("Modify");
+        Modify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModifyActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Modify, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blossomproject/colorfulFlowers.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blossomproject/colorfulBalloons.jpg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blossomproject/flower.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, -1));
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>                        
+
+    private void NextActionPerformed(java.awt.event.ActionEvent evt) {                                     
+        
+        if(RFlower.isSelected()){
+            
+        new flowers().setVisible(true);
+        this.setVisible(false);
+        
+        }
+        
+        else if(RBalloon.isSelected()){
+            
+        new balloons().setVisible(true);
+        this.setVisible(false);
+        
+        }
+        
+        else
+        JOptionPane.showMessageDialog(this,"Please choose the item you want to buy" , "WARNING" , JOptionPane.WARNING_MESSAGE);
+    
+    }                                    
+
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {                                     
+        
+        new welcom().setVisible(true);
+        this.setVisible(false);
+        
+    }                                    
+
+    private void ModifyActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        
+        new pasuser().setVisible(true);
+        this.setVisible(false);
+        
+    }                                      
+
+    private void RFlowerActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        // TODO add your handling code here:
+    }                                       
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(choice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(choice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(choice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(choice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new choice().setVisible(true);
+            }
+        });
+    }
+
+    
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton Back;
+    private javax.swing.JButton Modify;
+    private javax.swing.JButton Next;
+    private javax.swing.JRadioButton RBalloon;
+    private javax.swing.JRadioButton RFlower;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    // End of variables declaration                   
+}
