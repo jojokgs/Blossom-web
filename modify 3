@@ -1,0 +1,417 @@
+package blossomproject;
+
+import java.awt.event.KeyEvent;
+import javax.swing.*;
+import java.sql.*;
+public class modifyuu extends JFrame {
+  Connection connection = null;
+    Statement statement = null;
+    ResultSet resultSet = null;
+    String query;
+    static PreparedStatement preparedStatement;
+    public modifyuu() {
+        initComponents();
+        doConnect();
+    }
+public void doConnect( ){
+    
+    try{
+            
+        String URL = "jdbc:mysql://localhost/store";
+        String username = "root";
+        String password = "1234";
+        query = "select * from owner";
+        connection = DriverManager.getConnection(URL, username, password);
+        statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+                                                            ResultSet.CONCUR_UPDATABLE);
+        resultSet = statement.executeQuery(query);
+                     
+        resultSet.next();
+	  
+        t1.setText(resultSet.getString(1));
+        t2.setText(resultSet.getString(2));
+        t3.setText(resultSet.getString(3));
+        
+            
+            
+        } 
+    catch (SQLException ex){
+            
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+    }
+    } 
+    
+@SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jLabel2 = new javax.swing.JLabel();
+        Back = new javax.swing.JButton();
+        ModifyAll = new javax.swing.JButton();
+        Show = new javax.swing.JButton();
+        Update = new javax.swing.JButton();
+        Delete = new javax.swing.JButton();
+        Add = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tr = new javax.swing.JList();
+        t3 = new javax.swing.JTextField();
+        t2 = new javax.swing.JTextField();
+        t1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Modify");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Modern No. 20", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel2.setText("Modifing");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
+
+        Back.setBackground(new java.awt.Color(255, 153, 153));
+        Back.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Back.setForeground(new java.awt.Color(153, 0, 51));
+        Back.setText("Back");
+        Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, -1, -1));
+
+        ModifyAll.setBackground(new java.awt.Color(255, 153, 153));
+        ModifyAll.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ModifyAll.setForeground(new java.awt.Color(153, 0, 51));
+        ModifyAll.setText("Modify All");
+        ModifyAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModifyAllActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ModifyAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, -1, -1));
+
+        Show.setBackground(new java.awt.Color(255, 153, 153));
+        Show.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Show.setForeground(new java.awt.Color(153, 0, 51));
+        Show.setText("Show");
+        Show.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Show, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, -1, -1));
+
+        Update.setBackground(new java.awt.Color(255, 153, 153));
+        Update.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Update.setForeground(new java.awt.Color(153, 0, 51));
+        Update.setText("Update");
+        Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, -1, -1));
+
+        Delete.setBackground(new java.awt.Color(255, 153, 153));
+        Delete.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Delete.setForeground(new java.awt.Color(153, 0, 51));
+        Delete.setText("Delete");
+        Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, -1, -1));
+
+        Add.setBackground(new java.awt.Color(255, 153, 153));
+        Add.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Add.setForeground(new java.awt.Color(153, 0, 51));
+        Add.setText("Add");
+        Add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, -1, -1));
+
+        tr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                trMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tr);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 300, -1));
+
+        t3.setColumns(15);
+        getContentPane().add(t3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 200, 30));
+
+        t2.setColumns(15);
+        getContentPane().add(t2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 200, 30));
+
+        t1.setColumns(15);
+        t1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t1KeyTyped(evt);
+            }
+        });
+        getContentPane().add(t1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 200, 30));
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel9.setText("Passowrd :");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 130, -1));
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel7.setText("Name :");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 60, -1));
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel6.setText("ID :");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blossomproject/flower.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>                        
+
+    private void t1KeyTyped(java.awt.event.KeyEvent evt) {                            
+
+        char c = evt.getKeyChar();
+        if( ( (!Character.isDigit(c)) )
+            || (c == KeyEvent.VK_BACK_SPACE)
+            || (c == KeyEvent.VK_DELETE) )
+        {
+            getToolkit().beep(); //Will create a sound when a character keys are pressed
+            evt.consume();// It will not be type a character keys
+        }
+
+    }                           
+
+    private void trMouseClicked(java.awt.event.MouseEvent evt) {                                
+
+        t1.setText("");
+        t2.setText("");
+        t3.setText("");
+        
+
+        if (evt.getClickCount() == 1) {
+            JList target = (JList)evt.getSource();
+            int index = target.locationToIndex(evt.getPoint());
+            if (index >= 0){
+                Object item = target.getModel().getElementAt(index);
+                JOptionPane.showMessageDialog(null, item.toString());
+            }
+
+            index++;
+
+            query = "select * FROM owner WHERE owner_id =\" " + index + "\"" ;
+
+            try{
+
+                preparedStatement = connection.prepareStatement(query);
+                resultSet = preparedStatement.executeQuery(query);
+
+                while(resultSet.next()){
+                    t1.setText(resultSet.getString(1));
+                    t2.setText(resultSet.getString(2));
+                    t3.setText(resultSet.getString(3));
+                    
+                }
+            }
+
+            catch(SQLException ex) {
+
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+
+            }
+        }
+    }                               
+
+    private void AddActionPerformed(java.awt.event.ActionEvent evt) {                                    
+
+        if(t1.getText().isEmpty() || t2.getText().isEmpty() || t3.getText().isEmpty() )
+        JOptionPane.showMessageDialog(this,"You can't add while it is empty" , "WARNING" , JOptionPane.WARNING_MESSAGE);
+
+        else{
+
+            String p1 = t1.getText();
+            String p2 = t2.getText();
+            String p3 = t3.getText();
+            
+
+            try{
+
+                query = "insert into owner values(?,?,?);";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1, p1);
+                preparedStatement.setString(2, p2);
+                preparedStatement.setString(3, p3);
+                
+
+                preparedStatement.execute();
+                preparedStatement.close();
+
+                JOptionPane.showMessageDialog(this, "Saved");
+            }
+
+            catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
+        }
+    }                                   
+
+    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {                                       
+
+        if(t1.getText().isEmpty() || t2.getText().isEmpty() || t3.getText().isEmpty() )
+        JOptionPane.showMessageDialog(this,"You can't delete while it is empty" , "WARNING" , JOptionPane.WARNING_MESSAGE);
+
+        else{
+            String g = t1.getText();
+            query = "DELETE FROM owner WHERE owner_id =\" " + g + "\"" ;
+            try {
+
+                statement = connection.createStatement();
+                statement.executeUpdate(query);
+                JOptionPane.showMessageDialog(this, "Deleted ");
+            }
+
+            catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
+        }
+    }                                      
+
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {                                       
+
+        if(t1.getText().isEmpty() || t2.getText().isEmpty() || t3.getText().isEmpty() )
+        JOptionPane.showMessageDialog(this,"You can't update while it is empty" , "WARNING" , JOptionPane.WARNING_MESSAGE);
+
+        else{
+            String p1 = t1.getText();
+            String p2 = t2.getText();
+            String p3 = t3.getText();
+            
+
+            try{
+
+                query = "UPDATE owner SET owner_username=?,owner_password=? WHERE owner_id =\" " + p1 +  "\"" ;
+
+                preparedStatement = connection.prepareStatement(query);
+
+                preparedStatement.setString(1, p2);
+                preparedStatement.setString(2, p3);
+                
+
+                preparedStatement.execute();
+                preparedStatement.close();
+
+                JOptionPane.showMessageDialog(this, "Updated");
+            }
+
+            catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
+        }
+    }                                      
+
+    private void ShowActionPerformed(java.awt.event.ActionEvent evt) {                                     
+
+        DefaultListModel model = new DefaultListModel();
+
+        try{
+
+            tr.setModel(model);
+            query = "select * from owner";
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery(query);
+
+            while(resultSet.next()){
+
+                model.addElement("ID : " + resultSet.getString(1) + " " +
+                    " Username : " + resultSet.getString(2) + " " +
+                    " Password : " + resultSet.getString(3)  );
+
+            }
+        }
+
+        catch (SQLException sqlEx){
+
+            JOptionPane.showMessageDialog(this, sqlEx.getMessage());
+        }
+
+    }                                    
+
+    private void ModifyAllActionPerformed(java.awt.event.ActionEvent evt) {                                          
+
+        new modifyall().setVisible(true);
+        this.setVisible(false);
+    }                                         
+
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {                                     
+
+        new choice().setVisible(true);
+        this.setVisible(false);
+    }                                    
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(modifyuu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(modifyuu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(modifyuu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(modifyuu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new modifyuu().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton Add;
+    private javax.swing.JButton Back;
+    private javax.swing.JButton Delete;
+    private javax.swing.JButton ModifyAll;
+    private javax.swing.JButton Show;
+    private javax.swing.JButton Update;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField t1;
+    private javax.swing.JTextField t2;
+    private javax.swing.JTextField t3;
+    private javax.swing.JList tr;
+    // End of variables declaration                   
+}
