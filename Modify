@@ -1,0 +1,488 @@
+package blossomproject;
+import java.awt.event.KeyEvent;
+import javax.swing.*;
+import java.sql.*;
+public class modify extends JFrame {
+    
+    Connection connection = null;
+    Statement statement = null;
+    ResultSet resultSet = null;
+    String query;
+    static PreparedStatement preparedstatementt;
+    
+        public modify() {
+            
+        initComponents();
+        doConnect();
+        
+    }
+        
+    public void doConnect(){
+        
+        try{
+            
+            String URL = "jdbc:mysql://localhost/store";
+            String username = "root";
+            String password = "1234";
+            query = "select * from menu_item";
+            connection = DriverManager.getConnection(URL, username, password);
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+                                                            ResultSet.CONCUR_UPDATABLE);
+
+	     resultSet = statement.executeQuery(query);
+                     
+            resultSet.next();
+	  
+            t1.setText(resultSet.getString("id_m"));
+            t2.setText(resultSet.getString("item_category_id"));
+            t3.setText(resultSet.getString("item_name"));
+            t4.setText(resultSet.getString("item_price"));
+            
+        } 
+        
+        catch (SQLException ex){
+            
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    } 
+    
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        ModifyAll = new javax.swing.JButton();
+        t4 = new javax.swing.JTextField();
+        t2 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        Show = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        t1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        t3 = new javax.swing.JTextField();
+        Add = new javax.swing.JButton();
+        Delete = new javax.swing.JButton();
+        Update = new javax.swing.JButton();
+        Back = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        List = new javax.swing.JList();
+        jLabel1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Modify");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ModifyAll.setBackground(new java.awt.Color(255, 153, 153));
+        ModifyAll.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ModifyAll.setForeground(new java.awt.Color(153, 0, 51));
+        ModifyAll.setText("Modify All");
+        ModifyAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModifyAllActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ModifyAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, -1, -1));
+
+        t4.setColumns(15);
+        t4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t4KeyTyped(evt);
+            }
+        });
+        getContentPane().add(t4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 200, 30));
+
+        t2.setColumns(15);
+        t2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t2KeyTyped(evt);
+            }
+        });
+        getContentPane().add(t2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 200, 30));
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel6.setText("Name :");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel5.setText("ID :");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, -1));
+
+        Show.setBackground(new java.awt.Color(255, 153, 153));
+        Show.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Show.setForeground(new java.awt.Color(153, 0, 51));
+        Show.setText("Show");
+        Show.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Show, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Modern No. 20", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel2.setText("Modifing");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel3.setText("Category ID :");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, -1, -1));
+
+        t1.setColumns(15);
+        t1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t1KeyTyped(evt);
+            }
+        });
+        getContentPane().add(t1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 200, 30));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel4.setText("Price :");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, -1, -1));
+
+        t3.setColumns(15);
+        getContentPane().add(t3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 200, 30));
+
+        Add.setBackground(new java.awt.Color(255, 153, 153));
+        Add.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Add.setForeground(new java.awt.Color(153, 0, 51));
+        Add.setText("Add");
+        Add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, -1, -1));
+
+        Delete.setBackground(new java.awt.Color(255, 153, 153));
+        Delete.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Delete.setForeground(new java.awt.Color(153, 0, 51));
+        Delete.setText("Delete");
+        Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, -1, -1));
+
+        Update.setBackground(new java.awt.Color(255, 153, 153));
+        Update.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Update.setForeground(new java.awt.Color(153, 0, 51));
+        Update.setText("Update");
+        Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, -1, -1));
+
+        Back.setBackground(new java.awt.Color(255, 153, 153));
+        Back.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Back.setForeground(new java.awt.Color(153, 0, 51));
+        Back.setText("Back");
+        Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, -1, -1));
+
+        List.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(List);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 300, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blossomproject/flower.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        setSize(new java.awt.Dimension(641, 451));
+        setLocationRelativeTo(null);
+    }// </editor-fold>                        
+
+    private void AddActionPerformed(java.awt.event.ActionEvent evt) {                                    
+       
+        if(t1.getText().isEmpty() || t2.getText().isEmpty() || t3.getText().isEmpty() || t4.getText().isEmpty() )
+        JOptionPane.showMessageDialog(this,"You can't add while it is empty" , "WARNING" , JOptionPane.WARNING_MESSAGE);
+        
+                
+        else{
+        String id = t1.getText();
+        String idc = t2.getText();
+        String na = t3.getText();
+        String pr = t4.getText();
+        
+        try{
+          
+            query="insert into menu_item values(?,?,?,?);";
+            preparedstatementt= connection.prepareStatement(query);
+            
+            preparedstatementt.setString(1, id);
+            preparedstatementt.setString(2, idc);
+            preparedstatementt.setString(3, na);
+            preparedstatementt.setString(4, pr);
+      
+            preparedstatementt.execute();
+            preparedstatementt.close();
+            
+            JOptionPane.showMessageDialog(this, "Saved");
+        } 
+        
+        catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+       }
+        }
+        
+    }                                   
+
+    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        
+        if(t1.getText().isEmpty() || t2.getText().isEmpty() || t3.getText().isEmpty() || t4.getText().isEmpty() )
+       JOptionPane.showMessageDialog(this,"You can't delete while it is empty" , "WRONG" , JOptionPane.ERROR_MESSAGE);
+        
+        else{
+            
+        
+        String g = t1.getText();
+        query = "DELETE FROM menu_item WHERE id_m =\" " + g + "\"" ;			
+      
+        try{
+     
+        statement = connection.createStatement();
+        statement.executeUpdate(query);
+        
+        JOptionPane.showMessageDialog(this, "Deleted");
+       
+        }
+        
+        catch(SQLException ex) {
+          
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+       
+        }
+        }
+    }                                      
+
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        
+       if(t1.getText().isEmpty() || t2.getText().isEmpty() || t3.getText().isEmpty() || t4.getText().isEmpty() )
+       JOptionPane.showMessageDialog(this,"You can't update while it is empty" , "WRONG" , JOptionPane.ERROR_MESSAGE);
+        
+        else{
+        
+        String id = t1.getText();
+        String idc = t2.getText();
+        String na = t3.getText();
+        String pr = t4.getText();
+        String g = t1.getText();
+        
+        try{
+          
+        query = "UPDATE  menu_item SET item_category_id=?,item_name=?,item_price=? WHERE id_m =\" " + id + "\"" ;
+             
+        preparedstatementt= connection.prepareStatement(query);
+ 
+        preparedstatementt.setString(1, idc);
+        preparedstatementt.setString(2, na);
+        preparedstatementt.setString(3, pr);
+      
+        preparedstatementt.execute();
+        preparedstatementt.close();
+             
+        JOptionPane.showMessageDialog(this, "Updated");
+        
+        } 
+        
+        catch (SQLException ex){
+           
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+            
+       }
+    } 
+    }                                      
+
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {                                     
+        
+        new choice().setVisible(true);
+        this.setVisible(false);
+        
+    }                                    
+
+    private void ShowActionPerformed(java.awt.event.ActionEvent evt) {                                     
+        
+        DefaultListModel model = new DefaultListModel();
+        
+        try{
+        
+            List.setModel(model);  
+            
+            query = "select * from menu_item ";
+            preparedstatementt= connection.prepareStatement(query); 
+            resultSet = preparedstatementt.executeQuery(query);
+            
+            while(resultSet.next()){
+                
+            model.addElement("ID : " + resultSet.getString("id_m") + 
+            " ID Category : " + resultSet.getString("item_category_id") + 
+            " Name : " + resultSet.getString("item_name") + 
+            " Price : " + resultSet.getString("item_price")); }
+
+            
+        }
+        
+        catch (SQLException sqlEx){
+            
+            JOptionPane.showMessageDialog(this, sqlEx.getMessage());
+        }
+        
+    }                                    
+
+    private void ModifyAllActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        
+        new modifyall().setVisible(true);
+        this.setVisible(false);
+        
+    }                                         
+
+    private void t1KeyTyped(java.awt.event.KeyEvent evt) {                            
+        
+        char c = evt.getKeyChar();
+        if( ( (!Character.isDigit(c)) ) 
+                || (c == KeyEvent.VK_BACK_SPACE) 
+                || (c == KeyEvent.VK_DELETE) )
+        {
+            getToolkit().beep(); //Will create a sound when a character keys are pressed
+            evt.consume();// It will not be type a character keys
+        }
+    }                           
+
+    private void t2KeyTyped(java.awt.event.KeyEvent evt) {                            
+        
+        char c = evt.getKeyChar();
+        if( ( (!Character.isDigit(c)) ) 
+                || (c == KeyEvent.VK_BACK_SPACE) 
+                || (c == KeyEvent.VK_DELETE) )
+        {
+            getToolkit().beep(); //Will create a sound when a character keys are pressed
+            evt.consume();// It will not be type a character keys
+        }
+        
+    }                           
+
+    private void t4KeyTyped(java.awt.event.KeyEvent evt) {                            
+        
+        char c = evt.getKeyChar();
+        if( ( (!Character.isDigit(c)) && (c != KeyEvent.VK_PERIOD) ) 
+                || (c == KeyEvent.VK_BACK_SPACE) 
+                || (c == KeyEvent.VK_DELETE) )
+        {
+            getToolkit().beep(); //Will create a sound when a character keys are pressed
+            evt.consume();// It will not be type a character keys
+        }
+        
+    }                           
+
+    private void ListMouseClicked(java.awt.event.MouseEvent evt) {                                  
+        
+        t1.setText("");
+        t2.setText("");
+        t3.setText("");
+        t4.setText("");
+        
+        if (evt.getClickCount() == 1) {
+            JList target = (JList)evt.getSource();
+            int index = target.locationToIndex(evt.getPoint());
+            if (index >= 0){
+                Object item = target.getModel().getElementAt(index);
+                JOptionPane.showMessageDialog(null, item.toString());
+               }
+            
+            index++;
+            
+            query = "select * FROM menu_item WHERE id_m =\" " + index + "\"" ;
+            
+            try{
+                
+                preparedstatementt = connection.prepareStatement(query); 
+                resultSet = preparedstatementt.executeQuery(query);
+                
+                
+                while(resultSet.next()){
+                t1.setText(resultSet.getString(1));
+                t2.setText(resultSet.getString(2));
+                t3.setText(resultSet.getString(3));
+                t4.setText(resultSet.getString(4));
+                }
+        }
+            
+        catch(SQLException ex) {
+          
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+       
+        }
+        }
+    }                                 
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(modify.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(modify.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(modify.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(modify.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new modify().setVisible(true);
+            }
+        });
+    }
+
+      
+    DefaultListModel model = new DefaultListModel();
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton Add;
+    private javax.swing.JButton Back;
+    private javax.swing.JButton Delete;
+    private javax.swing.JList List;
+    private javax.swing.JButton ModifyAll;
+    private javax.swing.JButton Show;
+    private javax.swing.JButton Update;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField t1;
+    private javax.swing.JTextField t2;
+    private javax.swing.JTextField t3;
+    private javax.swing.JTextField t4;
+    // End of variables declaration                   
+}
