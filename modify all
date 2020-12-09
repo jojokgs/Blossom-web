@@ -1,0 +1,166 @@
+package blossomproject;
+public class modifyall extends javax.swing.JFrame {
+
+    public modifyall() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        b7 = new javax.swing.JButton();
+        b6 = new javax.swing.JButton();
+        b5 = new javax.swing.JButton();
+        b4 = new javax.swing.JButton();
+        Back = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Modify all");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        b7.setBackground(new java.awt.Color(255, 153, 153));
+        b7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        b7.setForeground(new java.awt.Color(153, 0, 51));
+        b7.setText("User");
+        b7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(b7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, -1, -1));
+
+        b6.setBackground(new java.awt.Color(255, 153, 153));
+        b6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        b6.setForeground(new java.awt.Color(153, 0, 51));
+        b6.setText("Items");
+        b6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(b6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
+
+        b5.setBackground(new java.awt.Color(255, 153, 153));
+        b5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        b5.setForeground(new java.awt.Color(153, 0, 51));
+        b5.setText("Branch");
+        b5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(b5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, -1, -1));
+
+        b4.setBackground(new java.awt.Color(255, 153, 153));
+        b4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        b4.setForeground(new java.awt.Color(153, 0, 51));
+        b4.setText("Category");
+        b4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(b4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, -1, -1));
+
+        Back.setBackground(new java.awt.Color(255, 153, 153));
+        Back.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Back.setForeground(new java.awt.Color(153, 0, 51));
+        Back.setText("Back");
+        Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Modern No. 20", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel2.setText("Modifing");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blossomproject/flower.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>                        
+
+    private void b4ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+        
+        new modifyc().setVisible(true);
+        this.setVisible(false);  
+       
+    }                                  
+
+    private void b5ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+        
+        new modifyU().setVisible(true);
+        this.setVisible(false);  
+        
+    }                                  
+
+    private void b6ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+        
+        new modify().setVisible(true);
+        this.setVisible(false);
+
+    }                                  
+
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {                                     
+
+        new choice().setVisible(true);
+        this.setVisible(false);
+
+    }                                    
+
+    private void b7ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+        // TODO add your handling code here:
+        new modifyuu().setVisible(true);
+        this.setVisible(false); 
+    }                                  
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(modifyall.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(modifyall.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(modifyall.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(modifyall.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new modifyall().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton Back;
+    private javax.swing.JButton b4;
+    private javax.swing.JButton b5;
+    private javax.swing.JButton b6;
+    private javax.swing.JButton b7;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    // End of variables declaration                   
+}
