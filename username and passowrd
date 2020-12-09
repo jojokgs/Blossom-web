@@ -1,0 +1,180 @@
+package blossomproject;
+import javax.swing.*;
+import java.sql.*;
+
+public class pasuser extends JFrame {
+
+    Connection connection = null;
+    Statement statement = null;
+    ResultSet resultSet = null;
+    String query;
+    static PreparedStatement preparedstatementt;
+    
+    public pasuser() {
+        initComponents();
+        doConnect();
+    }
+
+    public void doConnect(){
+        
+        try {
+            
+            String URL = "jdbc:mysql://localhost/store";
+            String username = "root";
+            String password = "1234";
+            query = "select * from owner";
+            connection = DriverManager.getConnection(URL, username, password);
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+                                                            ResultSet.CONCUR_UPDATABLE);
+            resultSet = statement.executeQuery(query);
+                     
+            resultSet.next();
+	} 
+        
+        catch (SQLException ex){
+            
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    } 
+    
+    @SuppressWarnings("unchecked")
+    
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        log = new javax.swing.JButton();
+        back = new javax.swing.JButton();
+        Username = new javax.swing.JTextField();
+        Password = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        log.setBackground(new java.awt.Color(255, 153, 153));
+        log.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        log.setForeground(new java.awt.Color(51, 51, 255));
+        log.setText("Log in");
+        log.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logActionPerformed(evt);
+            }
+        });
+        getContentPane().add(log, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 70, -1));
+
+        back.setBackground(new java.awt.Color(255, 153, 153));
+        back.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        back.setForeground(new java.awt.Color(51, 51, 255));
+        back.setText("Back");
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, -1, -1));
+        getContentPane().add(Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 140, 30));
+        getContentPane().add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 140, 30));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel5.setText("Password");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 150, -1));
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel6.setText("Log In");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 130, -1));
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel8.setText("Username");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 160, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blossomproject/flower.jpg"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 410));
+
+        setSize(new java.awt.Dimension(636, 444));
+        setLocationRelativeTo(null);
+    }// </editor-fold>                        
+
+    private void logActionPerformed(java.awt.event.ActionEvent evt) {                                    
+    
+        try{
+        
+        if (Username.getText().equals(resultSet.getString(2)) && Password.getText().equals(resultSet.getString(3))){
+            
+            new modifyall().setVisible(true);
+            this.setVisible(false);
+        }
+        
+        else if (Username.getText().equals("") || Password.getText().equals(""))
+JOptionPane.showMessageDialog(this, "Write your Username or Passowrd");
+
+
+
+         else
+        JOptionPane.showMessageDialog(this, "Wrong name or passowrd", "WARNING" , JOptionPane.ERROR_MESSAGE);
+      
+        } 
+        
+        catch (SQLException ex){
+            
+        JOptionPane.showMessageDialog(this, ex.getMessage());
+    }
+        
+    }                                   
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {                                     
+        
+        new choice().setVisible(true);
+        this.setVisible(false);
+        
+    }                                    
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(pasuser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(pasuser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(pasuser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(pasuser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new pasuser().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JPasswordField Password;
+    private javax.swing.JTextField Username;
+    private javax.swing.JButton back;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JButton log;
+    // End of variables declaration                   
+}
