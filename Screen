@@ -1,0 +1,140 @@
+package blossomproject;
+import java.awt.*;
+import java.awt.geom.*;
+import javax.swing.JWindow;
+import javax.swing.UIManager;
+public class Screen extends JWindow {
+
+    public Screen() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        bar = new javax.swing.JProgressBar();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        bar.setStringPainted(true);
+        getContentPane().add(bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 280, 20));
+
+        jLabel2.setFont(new java.awt.Font("Modern No. 20", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel2.setText("Welcome");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blossomproject/flower.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 410));
+
+        setSize(new java.awt.Dimension(614, 399));
+        setLocationRelativeTo(null);
+    }// </editor-fold>                        
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {                                    
+        
+        Graphics g = getGraphics();
+        Graphics2D g2 = (Graphics2D)g;
+        
+        
+        g2.setPaint(new GradientPaint(140, 20, Color.RED, 100,200,Color.BLUE , true));
+        
+        g2.fillOval(550, 70, 60, 80);
+        
+        int[] x1 = {570, 580, 590};
+        int[] y1 = {155, 145, 155};
+        g2.fillPolygon(x1, y1, 3);
+        
+        g2.setPaint(new GradientPaint(0, 0, Color.RED, 20,200,Color.BLUE , true));
+        
+        float[] dashes = {3,0,2,5};
+        g2.setStroke(new BasicStroke(2, BasicStroke.CAP_BUTT, BasicStroke.JOIN_ROUND, 10.0f, dashes, 7f));
+        g2.draw(new Line2D.Double(580, 150, 580, 240));
+        
+        g2.setPaint(new GradientPaint(0, 20, Color.RED, 420,0,Color.BLUE , true));
+        
+        int[] x2 = {585, 570, 570};
+        int[] y2 = {180, 170, 190};
+        g2.fillPolygon(x2, y2, 3);
+        
+        int[] x3 = {575, 590, 590};
+        int[] y3 = {180, 170, 190};
+        g2.fillPolygon(x3, y3, 3);
+             
+        g2.setPaint(Color.WHITE);
+        
+        g2.fillOval(565, 85, 5, 10);
+        
+        g2.setPaint(Color.PINK);
+        int[] x4 = {580, 575, 575};
+        int[] y4 = {180, 177, 183};
+        
+        g2.fillPolygon(x4, y4, 3);
+        int[] x5 = {580, 586, 586};
+        int[] y5 = {180, 177, 183};
+        g2.fillPolygon(x5, y5, 3);
+        
+    }                                   
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Screen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Screen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Screen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Screen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        final Screen sc = new Screen();
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                sc.setVisible(true);
+            }
+        });
+        
+        try{
+            
+        for( int i = 0; i <= 100; i++){
+            Thread.sleep(50);
+            sc.bar.setValue(i);
+        }
+        }
+        
+        catch(Exception e){}
+        
+        new welcom().setVisible(true);
+        sc.setVisible(false);
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JProgressBar bar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    // End of variables declaration                   
+}
